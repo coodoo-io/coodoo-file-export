@@ -32,6 +32,10 @@ import io.coodoo.framework.export.control.FileExportUtil;
 @Stateless
 public final class FileExport {
 
+    public static final String MEDIA_TYPE_XLS = "application/vnd.ms-excel";
+    public static final String MEDIA_TYPE_CSV = "text/csv";
+    public static final String MEDIA_TYPE_DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
     private FileExport() {}
 
     public static ByteArrayOutputStream buildXLS(List<? extends Object> objects) {
@@ -165,6 +169,8 @@ public final class FileExport {
                         tableRowTwo.getCell(1).setText(FileExportUtil.getFieldValue(field, object));
                     }
                 }
+                // make space between the tables
+                document.createParagraph().createRun().setText(" ");
             }
             try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
                 document.write(baos);
