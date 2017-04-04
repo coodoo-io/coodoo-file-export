@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Headline of export file
+ * The resulting file will begin with the text found at this annotation (not in CSV)
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

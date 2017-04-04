@@ -58,4 +58,49 @@ This library provides you a simple way to download a list of objects as an Excel
     }
     ```
 
-  
+## API
+The class `FileExport` provides static methods and constants designed to transform a list of objects into a download as seen above.
+
+
+## Customization
+Without any customization, the exported files will contain mostly what you can see in the POJO: Technical attribute names, results of plain toString() methods, etc.
+Therefore you can use following annotations to adjust the outcome of the export file:
+
+`@ExportTitle("I am a headline!")`
+The resulting file will begin with the text found at this annotation (not in CSV).  
+
+`@ExportColumn("Best Value")`
+This will name the column of the annotated attribute in the export file.  
+
+`@ExportDateTimePattern()`
+To use at a `java.util.Date` or `java.time.LocalDateTime` attribut to get it formatted by this the pattern "dd.MM.yyyy HH:mm" or the pattern you put at the annotation. 
+
+`@ExportBooleanLabels()`
+Put it an a boolian attribute and this will get you a "X" when it is `true` and nothing when it is `false`.  As seen above you can define your own labels.
+
+`@ExportIgnoreField()`
+This is your way to restrict an attribute from the export.
+
+   
+## Configuration
+
+To provide own configuration you need to add a property file named `coodoo.fileexport.properties` to your project. This file gets read on server startup if available.
+
+These are the properties to be defined on the file:
+
+```properties
+### coodoo file export settings ###
+
+## Timestamp pattern for the usage in the export filename
+coodoo.fileexport.export.timestamp.pattern = yyyyMMddHHmmss
+
+## XSL creation: Amount of rows to keep in memory, exceeding rows will be flushed to disk
+coodoo.fileexport.xls.buffer.limit = 1000
+
+## CSV separator
+coodoo.fileexport.csv.separator = ;
+
+## CSV quotation for values that contain the designated CSV seperator
+coodoo.fileexport.csv.quotes = "
+```
+*You can find a template [here](https://github.com/coodoo-io/coodoo-file-export/tree/master/src/main/resources/example.coodoo.fileexport.properties)*

@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Column name in export file
+ * This will name the column of the annotated attribute in the export file
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
