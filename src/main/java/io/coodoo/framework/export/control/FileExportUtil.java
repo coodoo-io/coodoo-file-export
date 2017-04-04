@@ -28,9 +28,9 @@ public final class FileExportUtil {
 
         Class<?> inheritanceClass = targetClass;
         while (inheritanceClass != null) {
-            fields.addAll(Arrays.asList(inheritanceClass.getDeclaredFields()).stream()
-                            .filter(field -> !field.isAnnotationPresent(ExportIgnoreField.class) && !Collection.class.isAssignableFrom(field.getType())
-                                            && (field.getModifiers() & Modifier.PUBLIC) == Modifier.PUBLIC && (field.getModifiers() & Modifier.STATIC) == 0)
+            fields.addAll(Arrays
+                            .asList(inheritanceClass.getDeclaredFields()).stream().filter(field -> !field.isAnnotationPresent(ExportIgnoreField.class)
+                                            && !Collection.class.isAssignableFrom(field.getType()) && (field.getModifiers() & Modifier.STATIC) == 0)
                             .collect(Collectors.toList()));
             inheritanceClass = inheritanceClass.getSuperclass();
         }
