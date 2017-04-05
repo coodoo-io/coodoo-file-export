@@ -6,13 +6,13 @@ This library provides you a simple way to download a list of objects as an Excel
 
 ## Getting started
 
-1. Add the [maven dependency](http://search.maven.org/#artifactdetails%7Cio.coodoo%7Ccoodoo-file-export%7C1.0.0%7Cjar)
+1. Add the [maven dependency](http://search.maven.org/#artifactdetails%7Cio.coodoo%7Ccoodoo-file-export%7C1.0.1%7Cjar)
 
    ```xml
 	<dependency>
 	    <groupId>io.coodoo</groupId>
 	    <artifactId>coodoo-file-export</artifactId>
-	    <version>1.0.0</version>
+	    <version>1.0.1</version>
 	</dependency>
    ```
 
@@ -84,7 +84,7 @@ This is your way to restrict an attribute from the export.
    
 ## Configuration
 
-To provide own configuration you need to add a property file named `coodoo.fileexport.properties` to your project. This file gets read on server startup if available.
+To provide own configuration you need to add a property file named `coodoo.fileexport.properties` to your project. This file gets read on JavaEE server startup if available or manually by calling `FileExportConfig.loadConfig()`;
 
 These are the properties to be defined on the file:
 

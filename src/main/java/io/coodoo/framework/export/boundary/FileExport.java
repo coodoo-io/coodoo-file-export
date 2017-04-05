@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.ejb.Stateless;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -29,7 +28,6 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
 import io.coodoo.framework.export.control.FileExportConfig;
 import io.coodoo.framework.export.control.FileExportUtil;
 
-@Stateless
 public final class FileExport {
 
     public static final String MEDIA_TYPE_XLS = "application/vnd.ms-excel";

@@ -12,9 +12,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Audit configuration
+ * Export configuration
  * 
- * @author coodoo
+ * @author coodoo GmbH (coodoo.io)
  */
 @Singleton
 @Startup
@@ -62,14 +62,17 @@ public class FileExportConfig {
      */
     private static final String fileexportPropertiesFilename = "coodoo.fileexport.properties";
 
-    Properties properties = new Properties();
+    static Properties properties = new Properties();
 
     @PostConstruct
     public void init() {
+        FileExportConfig.loadConfig();
+    }
 
+    public static void loadConfig() {
         InputStream inputStream = null;
         try {
-            inputStream = getClass().getClassLoader().getResourceAsStream(fileexportPropertiesFilename);
+            inputStream = FileExportConfig.class.getClassLoader().getResourceAsStream(fileexportPropertiesFilename);
 
             if (inputStream != null) {
 
@@ -119,7 +122,7 @@ public class FileExportConfig {
         }
     }
 
-    private String loadProperty(String value, String key) {
+    private static String loadProperty(String value, String key) {
 
         String property = properties.getProperty(key);
         if (property == null) {
@@ -129,7 +132,7 @@ public class FileExportConfig {
         return property;
     }
 
-    private int loadProperty(int value, String key) {
+    private static int loadProperty(int value, String key) {
         String property = properties.getProperty(key);
         if (property != null) {
             try {
@@ -142,7 +145,7 @@ public class FileExportConfig {
         return value;
     }
 
-    private boolean loadProperty(boolean value, String key) {
+    private static boolean loadProperty(boolean value, String key) {
         String property = properties.getProperty(key);
         if (property != null) {
             log.info("Audit Property {} loaded: {}", key, property);
