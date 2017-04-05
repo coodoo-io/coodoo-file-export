@@ -67,19 +67,19 @@ Without any customization, the exported files will contain mostly what you can s
 Therefore you can use following annotations to adjust the outcome of the export file:
 
 `@ExportTitle("I am a headline!")`
-The resulting file will begin with the text found at this annotation (not in CSV).  
+> The resulting file will begin with the text found at this annotation (not in CSV).  
 
 `@ExportColumn("Best Value")`
-This will name the column of the annotated attribute in the export file.  
+> This will name the column of the annotated attribute in the export file.  
 
 `@ExportDateTimePattern()`
-To use at a `java.util.Date` or `java.time.LocalDateTime` attribut to get it formatted by this the pattern "dd.MM.yyyy HH:mm" or the pattern you put at the annotation. 
+> To use at a `java.util.Date` or `java.time.LocalDateTime` attribut to get it formatted by this the pattern "dd.MM.yyyy HH:mm" or the pattern you put at the annotation. 
 
 `@ExportBooleanLabels()`
-Put it an a boolian attribute and this will get you a "X" when it is `true` and nothing when it is `false`.  As seen above you can define your own labels.
+> Put it an a boolian attribute and this will get you a "X" when it is `true` and nothing when it is `false`.  As seen above you can define your own labels.
 
 `@ExportIgnoreField()`
-This is your way to restrict an attribute from the export.
+> This is your way to restrict an attribute from the export.
 
    
 ## Configuration
