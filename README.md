@@ -37,7 +37,7 @@ Add the following dependency to your project ([published on Maven Central](http:
 
 ## Usage
 
-### Provide a List for download via Rest
+Provide a List for download via Rest
 
 ```java
  @GET
@@ -51,7 +51,7 @@ Add the following dependency to your project ([published on Maven Central](http:
  }
 ```
 
-### Make it pretty
+Make it pretty
 
 ```java
  @ExportTitle("Coodoo Items Example")
