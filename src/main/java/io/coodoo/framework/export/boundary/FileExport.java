@@ -125,6 +125,10 @@ public final class FileExport {
         }
     }
 
+    public static ByteArrayOutputStream buildDOC(List<? extends Object> objects) {
+        return buildDOC(null, objects);
+    }
+
     public static ByteArrayOutputStream buildDOC(String title, List<? extends Object> objects) {
 
         if (objects == null || objects.isEmpty()) {

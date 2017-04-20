@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.Initialized;
+import javax.enterprise.event.Observes;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +16,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author coodoo GmbH (coodoo.io)
  */
-@Singleton
-@Startup
+@ApplicationScoped
 public class FileExportConfig {
 
     private static Logger log = LoggerFactory.getLogger(FileExportConfig.class);
@@ -64,8 +63,7 @@ public class FileExportConfig {
 
     static Properties properties = new Properties();
 
-    @PostConstruct
-    public void init() {
+    public void init(@Observes @Initialized(ApplicationScoped.class) Object init) {
         FileExportConfig.loadConfig();
     }
 
@@ -128,7 +126,7 @@ public class FileExportConfig {
         if (property == null) {
             return value;
         }
-        log.info("Audit Property {} loaded: {}", key, property);
+        log.info("File Export Property {} loaded: {}", key, property);
         return property;
     }
 
@@ -136,10 +134,10 @@ public class FileExportConfig {
         String property = properties.getProperty(key);
         if (property != null) {
             try {
-                log.info("Audit Property {} loaded: {}", key, property);
+                log.info("File Export Property {} loaded: {}", key, property);
                 return Integer.valueOf(property).intValue();
             } catch (NumberFormatException e) {
-                log.warn("Audit Property {} value invalid: {}", key, property);
+                log.warn("File Export Property {} value invalid: {}", key, property);
             }
         }
         return value;
@@ -148,7 +146,7 @@ public class FileExportConfig {
     private static boolean loadProperty(boolean value, String key) {
         String property = properties.getProperty(key);
         if (property != null) {
-            log.info("Audit Property {} loaded: {}", key, property);
+            log.info("File Export Property {} loaded: {}", key, property);
             Boolean booleanValue = Boolean.valueOf(property);
             if (booleanValue != null) {
                 return booleanValue;

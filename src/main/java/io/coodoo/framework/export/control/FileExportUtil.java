@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import io.coodoo.framework.export.boundary.ExportReadable;
 import io.coodoo.framework.export.boundary.annotation.ExportBooleanLabels;
 import io.coodoo.framework.export.boundary.annotation.ExportColumn;
 import io.coodoo.framework.export.boundary.annotation.ExportDateTimePattern;
@@ -59,7 +60,9 @@ public final class FileExportUtil {
             field.setAccessible(true);
             Object value = field.get(object);
             if (value != null) {
-
+                if (value instanceof ExportReadable) {
+                    return ((ExportReadable) value).toExportValue();
+                }
                 if (field.isAnnotationPresent(ExportDateTimePattern.class)) {
                     String dateTimePattern = field.getAnnotation(ExportDateTimePattern.class).value();
                     if (value instanceof LocalDateTime) {
