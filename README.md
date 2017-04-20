@@ -20,7 +20,7 @@ Every application contains lists and this lists should be downloadable, often lo
 So you need to implement this assembling for all the attributes a list item has. After that you repeat the same for the next list, over and over again.
 The code may remain the same, but the attributes and requirements changes and you end up with a lot of code that needs to get maintained for every little change on the list.
 
-This library provides you a simple way to download a list of objects as an Excel, CSV or Word document.just by giving it the list.
+This library provides you a simple way to download a list of objects as an Excel, CSV or Word document just by giving it the list.
 
 
 ## Install
@@ -87,10 +87,10 @@ The class `FileExport` provides static methods and constants designed to transfo
 Without any customization, the exported files will contain mostly what you can see in the POJO: Technical attribute names, results of plain toString() methods, etc.
 Therefore you can use following annotations to adjust the outcome of the export file:
 
-| Annotation                         | Description                                                                      .                                                                                       |
+| Annotation                         | Description                                                                                                                                                             |
 |------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `@ExportTitle("I am a headline!")` | The resulting file will begin with the text found at this annotation (not in CSV).                                                                                       |
-| `@ExportColumn("Best Value")`      | This will name the column of the annotated attribute in the export file.                                                                                                 |
+| `@ExportTitle("Everything")` | The resulting file will begin with the text found at this annotation (not in CSV).                                                                                       |
+| `@ExportColumn("Something")`      | This will name the column of the annotated attribute in the export file.                                                                                                 |
 | `@ExportDateTimePattern()`         | To use at a `java.util.Date` or `java.time.LocalDateTime` attribute to get it formatted by this the pattern "dd.MM.yyyy HH:mm" or the pattern you put at the annotation. |
 | `@ExportBooleanLabels()`           | Put it an a boolean attribute and this will get you a "X" when it is `true` and nothing when it is `false`.,As seen above you can define your own labels.                |
 | `@ExportIgnoreField()`             | This is your way to restrict an attribute from the export.                                                                                                               |
