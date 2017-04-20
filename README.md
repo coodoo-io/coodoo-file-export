@@ -87,7 +87,7 @@ The class `FileExport` provides static methods and constants designed to transfo
 Without any customization, the exported files will contain mostly what you can see in the POJO: Technical attribute names, results of plain toString() methods, etc.
 Therefore you can use following annotations to adjust the outcome of the export file:
 
-| Annotation                         | Description                                                                      .                                                                                       |
+| Annotation                         | Description                                                                                                                                                             |
 |------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `@ExportTitle("Everything")` | The resulting file will begin with the text found at this annotation (not in CSV).                                                                                       |
 | `@ExportColumn("Something")`      | This will name the column of the annotated attribute in the export file.                                                                                                 |
