@@ -6,6 +6,13 @@
 ### BREAKING CHANGES
 -->
 
+<a name="1.0.3"></a>
+
+## 1.0.3 (2018-01-25)
+
+### Bug Fixes
+ * Fixing Content-Header Issue for Microsoft Office
+
 <a name="1.0.2"></a>
 
 ## 1.0.2 (2017-04-20)

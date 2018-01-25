@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.coodoo</groupId>
     <artifactId>coodoo-file-export</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>File Export</name>
     <description>Convenience util to provide POJO list exports as downloadable files in a JavaEE/Rest environment</description>
