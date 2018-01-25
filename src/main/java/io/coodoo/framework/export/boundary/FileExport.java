@@ -30,7 +30,7 @@ import io.coodoo.framework.export.control.FileExportUtil;
 
 public final class FileExport {
 
-    public static final String MEDIA_TYPE_XLS = "application/vnd.ms-excel";
+    public static final String MEDIA_TYPE_XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
     public static final String MEDIA_TYPE_CSV = "text/csv";
     public static final String MEDIA_TYPE_DOCX = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
 
@@ -231,11 +231,11 @@ public final class FileExport {
     }
 
     public static Response createXLSResponse(List<? extends Object> objects, String name) {
-        return createResponse(buildXLS(name, objects), createFileName(name, FileExportConfig.TIMESTAMP_PATTERN, "xls"));
+        return createResponse(buildXLS(name, objects), createFileName(name, FileExportConfig.TIMESTAMP_PATTERN, "xlsx"));
     }
 
     public static Response createDOCResponse(List<? extends Object> objects, String name) {
-        return createResponse(buildDOC(name, objects), createFileName(name, FileExportConfig.TIMESTAMP_PATTERN, "doc"));
+        return createResponse(buildDOC(name, objects), createFileName(name, FileExportConfig.TIMESTAMP_PATTERN, "docx"));
     }
 
     public static Response createCSVResponse(List<? extends Object> objects, String name) {
