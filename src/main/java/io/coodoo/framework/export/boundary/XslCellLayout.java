@@ -7,9 +7,9 @@ import java.util.regex.Pattern;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class XslCellLayout {
 
@@ -39,7 +39,7 @@ public class XslCellLayout {
         this.fontColor = fontColor;
     }
 
-    public XSSFCellStyle cellStyle(SXSSFWorkbook workbook) {
+    public XSSFCellStyle cellStyle(XSSFWorkbook workbook) {
 
         XSSFCellStyle style = (XSSFCellStyle) workbook.createCellStyle();
         style.setFillForegroundColor(colorOfHex(color));

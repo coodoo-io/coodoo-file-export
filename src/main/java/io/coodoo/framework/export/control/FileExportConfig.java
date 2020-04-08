@@ -50,7 +50,12 @@ public class FileExportConfig {
      */
     public static String TIMESTAMP_PATTERN = "yyyyMMddHHmmss";
 
-    // keep 1000 rows in memory, exceeding rows will be flushed to disk
+    /**
+     * Keep 1000 rows in memory, exceeding rows will be flushed to disk
+     * 
+     * @deprecated SXSSFWorkbook is not used anymore, so we don't need a buffer
+     */
+    @Deprecated
     public static int XSL_BUFFER_LIMIT = 1000;
 
     public static String CSV_SEPARATOR = ";";

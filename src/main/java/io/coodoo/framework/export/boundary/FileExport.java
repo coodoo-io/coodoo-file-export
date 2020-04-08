@@ -17,8 +17,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
@@ -54,8 +54,7 @@ public final class FileExport {
             throw new RuntimeException("No data");
         }
 
-        // keep limited amount of rows in memory, exceeding rows will be flushed to disk
-        try (SXSSFWorkbook workbook = new SXSSFWorkbook(FileExportConfig.XSL_BUFFER_LIMIT)) {
+        try (XSSFWorkbook workbook = new XSSFWorkbook()) {
 
             int rowIndex = 0;
             String exportTitle = title;
