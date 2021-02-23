@@ -8,7 +8,7 @@
 
 <a name="1.0.4"></a>
 
-## [1.0.4] (2020-04-08)
+## [1.0.4] - 2020-04-08
 
 ### Bug Fixes
  * The buffered SXSSFWorkbook is not supported with Java 9 and newer Java versions, so we switched to XSSFWorkbook. Therefore `FileExportConfig.XSL_BUFFER_LIMIT` has no function anymore and is deprecated.
